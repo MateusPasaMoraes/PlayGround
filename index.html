@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101611">
+<title>Chrono-Hand — A temporal poker roguelike</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="shell">
+<header class="topbar">
+  <div class="brand"><div class="brand-mark">◷</div><div><h1>CHRONO-HAND</h1><small>ANOMALY PROTOCOL&nbsp; / &nbsp;RUN 001</small></div></div>
+  <div class="top-actions"><span class="run-tag">SYSTEM TIME: 00:04:28</span><button class="icon-button" id="soundBtn" aria-label="Toggle sound">♫</button><button class="icon-button" id="helpBtn" aria-label="How to play">?</button></div>
+</header>
+<div class="game-layout">
+<aside class="left-rail">
+  <section class="panel cycle-panel"><div class="eyebrow">CURRENT CYCLE</div><div class="cycle-number"><span id="cycleNumber">01</span><span class="cycle-of">/ 08</span></div><div class="cycle-name" id="cycleName">THE FIRST LOOP</div><div class="progress-track"><i id="cycleProgress"></i></div><div class="cycle-foot"><span>ANOMALIES STABILIZED</span><b id="stabilized">0 / 3</b></div></section>
+  <section class="panel target-panel"><div class="eyebrow">TEMPORAL ANOMALY</div><div class="boss-icon" id="bossIcon"><span>⌁</span></div><h2 id="encounterName">THE ECHO</h2><p id="encounterDesc">A faint repetition from another timeline.</p><div class="target-label">SCORE THRESHOLD</div><div class="target-number" id="targetScore">300</div><div class="target-meter"><i id="targetMeter"></i></div><div class="target-current"><span>CURRENT SCORE</span><b id="scoreDisplay">0</b></div></section>
+  <section class="panel rule-panel"><div class="eyebrow">ANOMALY EFFECT</div><div class="rule-icon">⌁</div><div><b id="ruleTitle">Time is a flat circle</b><p id="ruleText">No temporal interference detected.</p></div></section>
+  <button class="reset-link" id="resetBtn">↻ &nbsp;Restart run</button>
+</aside>
+<section class="table-area">
+  <div class="table-meta"><div><div class="eyebrow">ENCOUNTER <span class="dot">•</span> <span id="encounterIndex">01 / 24</span></div><h2 id="encounterType">MINOR ANOMALY</h2></div><div class="phase-pill"><i></i><span id="phaseText">YOUR TURN</span></div></div>
+  <div class="felt-table">
+    <div class="felt-lines"></div><div class="table-stamp">CHRONO<br><span>DIVISION</span></div>
+    <div class="score-orbit"><div class="orbit-label">LAST HAND</div><div class="orbit-value" id="lastScore">—</div><div class="orbit-hand" id="lastHand">AWAITING INPUT</div></div>
+    <div class="energy-wrap"><div class="energy-label">ENERGY <span>×</span> TEMPORAL CHARGE</div><div class="energy-equation"><span id="energyValue">00</span><em>×</em><span id="chargeValue">0.0</span><strong>=</strong><b id="previewValue">00</b></div></div>
+    <div class="hand-area"><div class="hand-caption"><span>YOUR HAND <b id="handCount">8</b>/8</span><span>SELECT UP TO <b>5</b> CARDS</span></div><div class="cards" id="cards"></div></div>
+    <div class="table-actions"><div class="resource-row"><span class="resource"><i>◈</i><b id="chronons">12</b><small>CHRONONS</small></span><span class="resource"><i class="cyan">⌁</i><b id="plays">4</b><small>PLAYS</small></span><span class="resource"><i class="pink">↯</i><b id="discards">3</b><small>DISCARDS</small></span></div><div class="buttons"><button class="btn btn-ghost" id="discardBtn">DISCARD <span>↗</span></button><button class="btn btn-play" id="playBtn">PLAY HAND <span>↗</span></button></div></div>
+  </div>
+  <div class="deck-footer"><div class="deck-count"><span class="deck-icon">▤</span><span><b id="deckCount">44</b><small>IN DRAW PILE</small></span></div><div class="frequency-key"><span><i class="freq-pulse"></i>PULSE</span><span><i class="freq-echo"></i>ECHO</span><span><i class="freq-rift"></i>RIFT</span><span><i class="freq-void"></i>VOID</span></div><button class="deck-link" id="deckBtn">VIEW DECK&nbsp; ↗</button></div>
+</section>
+<aside class="right-rail">
+  <section class="panel timeline-panel"><div class="rail-heading"><div class="eyebrow">THE LONG WAY HOME</div><button id="timelineBtn">•••</button></div><div class="timeline" id="timeline"></div></section>
+  <section class="panel relic-panel"><div class="rail-heading"><div class="eyebrow">RELICS <span id="relicCount">( 01 )</span></div><button id="relicInfo">＋</button></div><div class="relics" id="relics"></div></section>
+  <section class="panel log-panel"><div class="eyebrow">CHRONICLE</div><div id="log"><p><i>04:28</i> You enter the first loop.</p><p><i>04:29</i> The Echo stirs in the static.</p></div></section>
+  <div class="footer-note">A GAME ABOUT THE THINGS<br>WE CARRY THROUGH TIME.</div>
+</aside>
+</div>
+</main>
+<div class="modal-backdrop hidden" id="modal"><section class="modal"><button class="modal-close" id="modalClose">×</button><div id="modalContent"></div></section></div>
+<div class="toast" id="toast"></div>
+<script src="game.js"></script>
+</body>
+</html>
